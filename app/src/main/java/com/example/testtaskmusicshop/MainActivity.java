@@ -107,11 +107,18 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         order.orderPrice = price * count;
         order.quantity = count;
         order.userName = userName.getText().toString();
-        if (order.userName.isEmpty()) {
+
+        if (!order.userName.isEmpty()) {
+            Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
+            orderIntent.putExtra("userName", order.userName);
+            orderIntent.putExtra("quantity", order.quantity);
+            orderIntent.putExtra("orderPrice", order.orderPrice);
+            orderIntent.putExtra("goodsName", order.goodsName);
+            orderIntent.putExtra("price",price);
+            startActivity(orderIntent);
+        } else {
             Toast toast = Toast.makeText(getApplicationContext(), "Введите имя", Toast.LENGTH_SHORT);
             toast.show();
         }
-        Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
-        startActivity(orderIntent);
     }
 }
