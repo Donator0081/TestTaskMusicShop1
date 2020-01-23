@@ -106,12 +106,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         order.goodsName = goodsName;
         order.orderPrice = price * count;
         order.quantity = count;
-        Log.d("userName",userName.getText().toString());
-        try {
+        if (userName != null) {
             order.userName = userName.getText().toString();
             Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
             startActivity(orderIntent);
-        } catch (NullPointerException e) {
+        } else {
             Toast toast = Toast.makeText(getApplicationContext(), "Введите имя", Toast.LENGTH_SHORT);
             toast.show();
         }
