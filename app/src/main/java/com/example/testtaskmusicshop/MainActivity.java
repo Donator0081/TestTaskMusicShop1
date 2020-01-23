@@ -30,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
         userName = findViewById(R.id.editTextName);
         createSpinner();
         createMap();
@@ -43,7 +44,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
     void createSpinner() {
-        setContentView(R.layout.activity_main);
         spinner = findViewById(R.id.spinnerForGuitars);
         spinner.setOnItemSelectedListener(this);
 
@@ -106,13 +106,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         order.goodsName = goodsName;
         order.orderPrice = price * count;
         order.quantity = count;
-        if (userName != null) {
-            order.userName = userName.getText().toString();
-            Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
-            startActivity(orderIntent);
-        } else {
+        order.userName = userName.getText().toString();
+        if (order.userName.isEmpty()) {
             Toast toast = Toast.makeText(getApplicationContext(), "Введите имя", Toast.LENGTH_SHORT);
             toast.show();
         }
+        Intent orderIntent = new Intent(MainActivity.this, OrderActivity.class);
+        startActivity(orderIntent);
     }
 }
