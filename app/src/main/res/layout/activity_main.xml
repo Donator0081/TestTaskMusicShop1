@@ -41,7 +41,7 @@
 
     <Button
         android:id="@+id/buttonForAdd"
-        android:onClick="addToCard"
+        android:onClick="addToCart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:background="@color/colorPrimaryDark"

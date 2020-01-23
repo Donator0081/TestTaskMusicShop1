@@ -25,7 +25,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     HashMap goodsMap;
     String goodsName;
     double price;
-    EditText userName = null;
+    EditText userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,7 +100,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     }
 
-    public void addToCard(View view) {
+    public void addToCart(View view) {
 
         Order order = new Order();
         order.goodsName = goodsName;
