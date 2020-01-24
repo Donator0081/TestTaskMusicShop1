@@ -9,4 +9,5 @@
     <string name="null_0">0</string>
     <string name="null_dollars">0 $</string>
     <string name="select_item">Select Item</string>
+    <string name="send">Send</string>
 </resources>
